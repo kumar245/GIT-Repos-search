@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_vertical_default">16dp</dimen>
+    <dimen name="margin_horizontal_default">16dp</dimen>
+    <dimen name="margin_default_half">8dp</dimen>
+    <dimen name="card_radius_default">8dp</dimen>
+    <dimen name="padding_default">16dp</dimen>
+    <dimen name="user_avatar_height">96dp</dimen>
+    <dimen name="user_avatar_width">96dp</dimen>
+    <dimen name="user_avatar_thumb_height">48dp</dimen>
+    <dimen name="user_avatar_thumb_width">48dp</dimen>
+</resources>

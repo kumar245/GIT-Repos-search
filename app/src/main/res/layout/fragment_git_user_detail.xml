@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="dev.chaitan.gitusersearch.ui.detail.GitUserDetailViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="0dp"
+                app:layout_constraintGuide_percent="0.4" />
+
+            <ImageView
+                android:id="@+id/user_avatar_iv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_horizontal_default"
+                android:layout_marginTop="@dimen/margin_vertical_default"
+                android:adjustViewBounds="true"
+                android:src="@{viewModel.avatar}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/guideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/user_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.name}"
+                android:layout_marginLeft="@dimen/margin_default_half"
+                app:layout_constraintLeft_toRightOf="@id/guideline"
+                app:layout_constraintTop_toTopOf="@id/user_avatar_iv" />
+
+            <TextView
+                android:id="@+id/email_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.email}"
+                android:layout_marginTop="@dimen/margin_default_half"
+                app:layout_constraintLeft_toLeftOf="@id/user_name_tv"
+                app:layout_constraintTop_toBottomOf="@id/user_name_tv" />
+
+            <TextView
+                android:id="@+id/location_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.location}"
+                android:layout_marginTop="@dimen/margin_default_half"
+                app:layout_constraintLeft_toLeftOf="@id/user_name_tv"
+                app:layout_constraintTop_toBottomOf="@id/email_tv"/>
+
+            <TextView
+                android:id="@+id/join_date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.joinDate}"
+                android:layout_marginTop="@dimen/margin_default_half"
+                app:layout_constraintLeft_toLeftOf="@id/user_name_tv"
+                app:layout_constraintTop_toBottomOf="@id/location_tv"/>
+
+            <TextView
+                android:id="@+id/followers_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_default_half"
+                android:text="@{String.format(@string/followers, viewModel.followers)}"
+                app:layout_constraintLeft_toLeftOf="@id/user_name_tv"
+                app:layout_constraintTop_toBottomOf="@id/join_date_tv"/>
+
+            <TextView
+                android:id="@+id/following_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/following, viewModel.following)}"
+                app:layout_constraintLeft_toLeftOf="@id/user_name_tv"
+                app:layout_constraintTop_toBottomOf="@id/followers_tv"/>
+
+            <TextView
+                android:id="@+id/bio_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_vertical_default"
+                android:layout_marginRight="@dimen/margin_horizontal_default"
+                android:text="@{viewModel.bio}"
+                app:layout_constraintLeft_toLeftOf="@id/user_avatar_iv"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/following_tv"/>
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/repo_sv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_horizontal_default"
+                android:layout_marginTop="@dimen/margin_vertical_default"
+                android:layout_marginRight="@dimen/margin_horizontal_default"
+                app:queryHint="@string/repo_search_hint"
+                app:layout_constraintTop_toBottomOf="@id/bio_tv" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/repo_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_vertical_default"
+                app:layout_constraintTop_toBottomOf="@id/repo_sv" />
+
+            <TextView
+                android:id="@+id/empty_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/repo_not_found"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

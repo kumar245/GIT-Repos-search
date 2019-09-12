@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">GitUserSearch</string>
+    <string name="search_user_hint">Search for Users</string>
+    <string name="user_not_found">User not found</string>
+    <string name="repo_not_found">Repository not found</string>
+    <string name="forks">Forks: %s</string>
+    <string name="repo">Repo: %s</string>
+    <string name="followers">%s Followers</string>
+    <string name="following">%s Following</string>
+    <string name="repo_search_hint">Search User Repository</string>
+</resources>
